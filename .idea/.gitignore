@@ -7,5 +7,6 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
-../src/*.iml
-../test/*.class
+*.iml
+/out/test/
+/out/src/
