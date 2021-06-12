@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class State implements IState {
+public abstract class State implements IState, Serializable {
 
     String id;
     Map<Event, State> transitions;
@@ -29,4 +30,14 @@ public abstract class State implements IState {
 
     public abstract void doSomething(Event e);
 
+    public String saveState() {
+        StringBuilder str = new StringBuilder(this.getClass().getSimpleName() + ";" + id + ";");
+        for (Event e : transitions.keySet()) {
+            str.append(e.toString()).append(",").append(transitions.get(e).toString());
+        }
+        str.append(";").append(saveRestOfState());
+        return str.toString();
+    }
+
+    protected abstract String saveRestOfState();
 }

@@ -19,14 +19,16 @@ public class TestMachine {
         machine.transit(e1);
         machine.transit(e1);
         machine.transit(e2);
-        machine.transit(e2);
-        machine.transit(e2);
-        machine.transit(e1);
-        machine.transit(e1);
-        machine.transit(e2);
-        machine.transit(e1);
-        machine.transit(e1);
-        machine.transit(e1);
-        machine.transit(e1);
+        machine.save();
+        Machine machine2 = new Machine().load();
+        machine2.transit(e2);
+        machine2.transit(e2);
+        machine2.transit(e1);
+        machine2.transit(e1);
+        machine2.transit(e2);
+        machine2.transit(e1);
+        machine2.transit(e1);
+        machine2.transit(e1);
+        machine2.transit(e1);
     }
 }

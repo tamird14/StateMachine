@@ -9,10 +9,15 @@ public class MachineState extends State {
 
     @Override
     public void doSomething(Event e) {
-        if (prevEvent == prevPrevEvent && prevEvent == e) {
+        if (e.equals(prevPrevEvent) && e.equals(prevEvent)) {
             System.out.println("The event '" + e + "' was fired 3 times in a row");
         }
         prevPrevEvent = prevEvent;
         prevEvent = e;
+    }
+
+    @Override
+    protected String saveRestOfState() {
+        return prevEvent+";"+prevPrevEvent+"\n";
     }
 }
