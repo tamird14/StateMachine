@@ -20,7 +20,6 @@ public class Machine implements Serializable {
     }
 
     public Machine(){
-
     }
 
     public void transit(Event e) {
@@ -36,18 +35,6 @@ public class Machine implements Serializable {
     public State getCurrentState() {
         return currentState;
     }
-
-//    public void save() {
-//        FileWriter writer = null;
-//        try {
-//            writer = new FileWriter("saved machine.txt");
-//            writer.append(getStringToSave());
-//            writer.flush();
-//            writer.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void save(){
         try {
@@ -77,14 +64,6 @@ public class Machine implements Serializable {
             c.printStackTrace();
         }
         return machine;
-    }
-
-    private String getStringToSave() {
-        StringBuilder str = new StringBuilder();
-        for (State s : states) {
-            str.append(s.saveState());
-        }
-        return str.toString();
     }
 
 }
